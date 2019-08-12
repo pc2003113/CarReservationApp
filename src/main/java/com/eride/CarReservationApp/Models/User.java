@@ -3,21 +3,21 @@ package com.eride.CarReservationApp.Models;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+public class User {
 
-public class RegisterModel {
     private String currentDate;
     private String userid;
     private String username;
     private String passid;
     private String address;
 
-    public RegisterModel(String userid, String username, String passid, String address) {
+    public User(String userid, String username, String passid, String address) {
         this.userid=userid;
         this.username=username;
         this.passid=passid;
         this.address=address;
     }
-    public RegisterModel() {
+    public User() {
 
     }
 
@@ -67,4 +67,6 @@ public class RegisterModel {
     public void setAddress(String address) {
         this.address=address;
     }
+
+
 }

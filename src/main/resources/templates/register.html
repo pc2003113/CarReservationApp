@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <head th:replace="fragments:: head"></head>
     <meta charset="UTF-8">
     <title>Register</title>
-    <link rel="stylesheet" type="text/css" href="/staic/Register.css" />
+
 </head>
 <body>
-
+<div th:replace="fragments :: page-header"></div>
 <h1>Registration Form</h1>
 <p>Current Date: <span th:text ="${RegisterModel.currentDate}"> </span></p>
+
 Use tab keys to move from one input field to the next.
 <form name='registration' method="post">
     <ul>
