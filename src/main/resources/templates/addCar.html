@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <head th:replace="fragments:: head"></head>
+    <meta charset="UTF-8">
+    <title>Vehicle</title>
+</head>
+<body>
+
+<h1>Add Vehicle Units </h1>
+<div th:replace="fragments :: page-header-admin"></div>
+
+<form name='Add Vehicles' method="post">
+    <ul>
+        <li><label for="year">Year:</label></li>
+        <li><input type="text" name="year" size="12" /></li>
+        <li><label for="make">Make:</label></li>
+        <li><input type="text" name="make" size="12" /></li>
+        <li><label for="model">Model:</label></li>
+        <li><input type="text" name="model" size="50" /></li>
+        <select name="Type">
+            <option value="sedan">Sedan</option>
+            <option value="suvs">SUV</option>
+            <option value="vans">Van</option>
+            <option value="trucks">Trucks</option>
+            <option value="none" selected>None</option>
+
+        </select>
+
+        <br>
+        <li><input type="submit" name="add" value="Add" /></li>
+    </ul>
+</form>
+
+
+</body>
+</html>

@@ -5,35 +5,23 @@ import java.util.Date;
 
 public class User {
 
-    private String currentDate;
     private String userid;
-    private String username;
-    private String passid;
-    private String address;
+    private String password;
+    private String fname;
+    private String lname;
+    private String email;
+    private boolean admin;
 
-    public User(String userid, String username, String passid, String address) {
+    public User(String userid, String password, String fname, String lname, String email,boolean admin) {
         this.userid=userid;
-        this.username=username;
-        this.passid=passid;
-        this.address=address;
+        this.password=password;
+        this.fname=fname;
+        this.lname=lname;
+        this.email=email;
+        this.admin=admin;
     }
     public User() {
 
-    }
-
-    public void populateCurrentDate() {
-
-        SimpleDateFormat sdf=new SimpleDateFormat("MM-dd-yyyy");
-        String cd=sdf.format(new Date());
-        this.currentDate=cd;
-        //return currentDate;
-    }
-    public String getCurrentDate() {
-        return currentDate;
-    }
-
-    public void setCurrentDate(String currentDate) {
-        this.currentDate=currentDate;
     }
 
     public String getUserid() {
@@ -44,29 +32,43 @@ public class User {
         this.userid=userid;
     }
 
-    public String getUsername() {
-        return username;
+    public String getPassword() {
+        return password;
     }
 
-    public void setUsername(String username) {
-        this.username=username;
+    public void setPassword(String password) {
+        this.password=password;
     }
 
-    public String getPassid() {
-        return passid;
+    public String getFname() {
+        return fname;
     }
 
-    public void setPassid(String passid) {
-        this.passid=passid;
+    public void setFname(String fname) {
+        this.fname=fname;
     }
 
-    public String getAddress() {
-        return address;
+    public String getLname() {
+        return lname;
     }
 
-    public void setAddress(String address) {
-        this.address=address;
+    public void setLname(String lname) {
+        this.lname=lname;
     }
 
+    public String getEmail() {
+        return email;
+    }
 
+    public void setEmail(String email) {
+        this.email=email;
+    }
+
+    public boolean isAdmin() {
+        return admin;
+    }
+
+    public void setAdmin(boolean admin) {
+        this.admin=admin;
+    }
 }

@@ -15,15 +15,15 @@
     <tr>
 
         <th>User Id</th>
-        <th>User Name</th>
-        <th>Address</th>
+        <th>First Name</th>
+        <th>Email</th>
     </tr>
     </thead>
 
     <tr th:each="c:${userskey}" >
         <td th:text ="${c.userid}"></td>
-        <td th:text ="${c.username}"></td>
-        <td th:text ="${c.address}"></td>
+        <td th:text ="${c.fname}"></td>
+        <td th:text ="${c.email}"></td>
     </tr>
 
 </table>

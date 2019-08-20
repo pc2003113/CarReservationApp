@@ -15,12 +15,13 @@ import java.util.Date;
 @Controller
 @RequestMapping("user")
 public class UserController {
-    static ArrayList<User>users;
+    public static ArrayList<User>users;
 
     public UserController() {
         users = new ArrayList<User>();
-        users.add(new User("Priyacjose","Priya","12345","1234 Main Street"));
-        users.add(new User("Adamcjose","Adam","67890","1234 Main Street"));
+        users.add(new User("Priyacjose","12345","Priya","Jose","p.c@gmail.com",true));
+        users.add(new User("Josecjose","45678","Jose","Jose","j.j@gmail.com",false));
+
 
     }
 
@@ -37,19 +38,21 @@ public class UserController {
     @RequestMapping(value = "register", method = RequestMethod.POST)
     public String saveRegisterationData(Model model,
                                         @RequestParam String userid,
-                                        @RequestParam String passid,
-                                        @RequestParam String username,
-                                        @RequestParam String address){
+                                        @RequestParam String password,
+                                        @RequestParam String fname,
+                                        @RequestParam String lname,
+                                        @RequestParam String email){
         model.addAttribute("userid",userid);
-        model.addAttribute("passid",passid);
-        model.addAttribute("username",username);
-        model.addAttribute("address",address);
+        model.addAttribute("password",password);
+        model.addAttribute("fname",fname);
+        model.addAttribute("lname",lname);
+        model.addAttribute("email",email);
 
 
 
-        System.out.println("Saved it..." + userid + " " + passid+ " " + username+ " " + address);
+        System.out.println("Saved it..." + userid + " " + password+ " " + fname+ " " + lname+ " " +email+ " ");
 
-        users.add(new User(userid, username,passid,address));
+        users.add(new User(userid, password,fname,lname,email,false));
         return "userInfo";
 
 

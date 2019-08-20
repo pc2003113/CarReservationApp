@@ -1,23 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <head th:replace="fragments:: head"></head>
     <meta charset="UTF-8">
     <title>Login</title>
 </head>
 <body>
 <h1>Login</h1>
 Use tab keys to move from one input field to the next.
-<form name='login' method = "post">
-    <ul>
-        <li><label for="userid">User id:</label></li>
-        <li><input type="text" name="userid" size="12" /></li>
-        <li><label for="passid">Password:</label></li>
-        <li><input type="password" name="passid" size="12" /></li>
+<p style="color:red"><span th:text ="${message}"> </span></p>
 
-        <br>
-        <li><input type="submit" name="Login" value="Login" /></li>
-    </ul>
-</form>
+<table>
+<tr>
+    <td>
+        <form name='login' method = "POST" Action="/login/customer">
+            <p>Cutomer Login</p>
+            <ul>
+                <li><label for="userid">User id:</label></li>
+                <li><input type="text" name="userid" size="12" /></li>
+                <li><label for="password">Password:</label></li>
+                <li><input type="password" name="password" size="12" /></li>
+
+                <br>
+                <li><input type="submit" name="Login" value="Login" /></li>
+            </ul>
+        </form>
+
+    </td>
+
+
+    <td>
+        <form name='login' method = "POST" Action="/login/admin">
+            <p>Admin Login</p>
+            <ul>
+                <li><label for="userid">User id:</label></li>
+                <li><input type="text" name="userid" size="12" /></li>
+                <li><label for="password">Password:</label></li>
+                <li><input type="password" name="password" size="12" /></li>
+
+                <br>
+                <li><input type="submit" name="Login" value="Login" /></li>
+            </ul>
+        </form>
+
+    </td>
+
+</tr>
+
+
+
+</table>
 
 </body>
 </html>

@@ -1,0 +1,4 @@
+INSERT INTO carrent.user values ('adamcjose','67890', 'Adam','jose','a.j@gmail.com');
+INSERT INTO carrent.user values ('priyajose','12345', 'Adam','jose','a.j@gmail.com');
+INSERT INTO carrent.user values ('josecjose','34567', 'Adam','jose','a.j@gmail.com');
+INSERT INTO carrent.user values ('familycjose','88789', 'Adam','jose','a.j@gmail.com');
