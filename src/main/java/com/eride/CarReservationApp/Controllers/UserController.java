@@ -2,20 +2,27 @@ package com.eride.CarReservationApp.Controllers;
 
 import com.eride.CarReservationApp.Models.RegisterModel;
 import com.eride.CarReservationApp.Models.User;
+import com.eride.CarReservationApp.dao.UserDAO;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.w3c.dom.UserDataHandler;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
+// this module is specific to CRUD of user
+
 @Controller
 @RequestMapping("user")
 public class UserController {
     public static ArrayList<User>users;
+    @Autowired
+    private UserDAO userDAO;
 
     public UserController() {
         users = new ArrayList<User>();
@@ -49,25 +56,21 @@ public class UserController {
         model.addAttribute("email",email);
 
 
+        User u = new User(userid, password,fname,lname,email,false);
+
+
+        userDAO.addUser(u);
 
         System.out.println("Saved it..." + userid + " " + password+ " " + fname+ " " + lname+ " " +email+ " ");
-
-        users.add(new User(userid, password,fname,lname,email,false));
         return "userInfo";
-
-
-
-
     }
 
 
     @RequestMapping(value = "list", method = RequestMethod.GET)
     public String registeredUserList(Model model){
-        model.addAttribute("userskey",users);
+        model.addAttribute("userskey", userDAO.getAllUsers());
 
         return "usersList";
-
-
 
 
     }

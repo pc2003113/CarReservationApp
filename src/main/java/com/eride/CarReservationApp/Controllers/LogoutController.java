@@ -1,23 +1,18 @@
 package com.eride.CarReservationApp.Controllers;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-
-/**
- * This controller displays the admin home page which has link to different pages
- *
- */
-
-
-
 @Controller
-public class AdminController {
+public class LogoutController {
 
-    @RequestMapping(value = "/admin", method=RequestMethod.GET)
-    public String showAdmin(){
-        return "admin";
+    @RequestMapping(value="/logout", method=RequestMethod.GET)
+    public String logout(Model model) {
+        return "redirect:/login";
+
     }
+
 
 
 }

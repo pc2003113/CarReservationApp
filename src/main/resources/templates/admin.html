@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <head th:replace="fragments:: head"></head>
+    <meta charset="UTF-8">
+    <title>Admin Home Page</title>
+</head>
+<body>
+<h1>Administration Home Page </h1>
+<div th:replace="fragments :: page-header-admin"></div>
+<p>This is a page for the Admin user.</p>
+
+<p>The following are the administrative functionality that can be performed on this app</p>
+<ol>
+    <li> <a href="/addCar">Add/Create a vehicle</a></li>
+    <li> Modify a vehicle</li>
+    <li> Delete a vehicle</li>
+    <li><a href="/carInventory">Car Inventory</a></li>
+    <li><a href="/user/list">Display user list</a></li>
+    <li>Modify user/Delete user</li>
+    <li>Add customer or admin user</li>
+</ol>
+
+
+
+</body>
+</html>
