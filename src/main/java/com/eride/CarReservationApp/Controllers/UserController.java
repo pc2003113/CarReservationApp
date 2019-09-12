@@ -21,18 +21,9 @@ import java.util.Date;
 @Controller
 @RequestMapping("user")
 public class UserController {
-    public static ArrayList<User>users;
+
     @Autowired
     private UserDAO userDAO;
-
-    public UserController() {
-        users = new ArrayList<User>();
-        users.add(new User("Priyacjose","12345","Priya","Jose","p.c@gmail.com",true));
-        users.add(new User("Josecjose","45678","Jose","Jose","j.j@gmail.com",false));
-
-
-    }
-
 
 
     @RequestMapping(value = "register", method=RequestMethod.GET)
