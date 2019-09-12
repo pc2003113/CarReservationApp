@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <head th:replace="fragments:: head"></head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+
+</head>
+<body>
+<div th:replace="fragments :: page-header"></div>
+
+
+
+Use tab keys to move from one input field to the next.
+<form name='modifyUser' method="post" action="/user/modify">
+    <ul>
+        <li><label for="userid">userid:</label></li>
+        <li><input type="userid" name="userid" size="12" th:value="${u.userid}" /></li>
+        <li><label for="password">Password:</label></li>
+        <li><input type="password" name="password" size="12" th:value="${u.password}" /></li>
+        <li><label for="fname">First Name:</label></li>
+        <li><input type="text" name="fname" size="50"  th:value="${u.fname}" /></li>
+        <li><label for="lname">Last Name:</label></li>
+        <li><input type="text" name="lname" size="50"  th:value="${u.lname}" /></li>
+        <li><label for="email">Email:</label></li>
+        <li><input type="text" name="email" size="50"  th:value="${u.email}" /></li>
+        <br>
+        <li><input type="submit" name="Submit" value="Submit" /></li>
+    </ul>
+</form>
+
+</body>
+</html>

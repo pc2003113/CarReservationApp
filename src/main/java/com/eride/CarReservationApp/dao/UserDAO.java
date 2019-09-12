@@ -30,11 +30,11 @@ public class UserDAO {
 
     }
 
-
+//Any one of the parameters can be used to find the user
     public User findUser(String userid,String fname,String lname,String email){
     List<User> matches = jdbcTemplate.query(
-    "select * from carrent.user where userid = ? or fname=? or lname =? or email=?",
-   new Object[] { userid,fname,lname,email },
+    "select * from carrent.user where lower(userid) = ? or fname=? or lname =? or email=?",
+   new Object[] { userid.toLowerCase(),fname,lname,email },
     new UserRowMapper());
     if (matches.isEmpty()){
     return null;
@@ -47,10 +47,22 @@ public class UserDAO {
 
    public void updateUser(User user){
        System.out.println("Updating " + user);
+       System.out.println("UserID:" + user.getUserid()+":");
+       System.out.println("Password:" + user.getPassword()+":");
+       System.out.println("Fname:" + user.getFname()+":");
+       System.out.println("Lname:" + user.getLname()+":");
+       System.out.println("Email:" + user.getEmail()+":");
        jdbcTemplate.update(
-               "UPDATE carrent.user SET userid=?, lname=? where userid=?",
-               user.getUserid(), user.getLname(),user.getUserid());
+               "UPDATE carrent.user SET userid=?,fname=?, lname=?, password=?, email=? where userid=?",
+                user.getUserid(),user.getFname(), user.getLname(), user.getPassword(), user.getEmail(),user.getUserid());
    }
+
+    public void deleteUser(String userid){
+
+        jdbcTemplate.update(
+                "delete from carrent.user where userid=?",
+                userid);
+    }
 
 
 }

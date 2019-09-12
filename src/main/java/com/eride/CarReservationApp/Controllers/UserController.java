@@ -17,6 +17,7 @@ import java.util.Date;
 
 // this module is specific to CRUD of user
 
+
 @Controller
 @RequestMapping("user")
 public class UserController {
@@ -41,7 +42,7 @@ public class UserController {
         model.addAttribute("RegisterModel",rm);
     return "register";
     };
-
+    //user create functionality for 1 user ( the c in CRUD)
     @RequestMapping(value = "register", method = RequestMethod.POST)
     public String saveRegisterationData(Model model,
                                         @RequestParam String userid,
@@ -58,22 +59,63 @@ public class UserController {
 
         User u = new User(userid, password,fname,lname,email,false);
 
-
         userDAO.addUser(u);
 
         System.out.println("Saved it..." + userid + " " + password+ " " + fname+ " " + lname+ " " +email+ " ");
         return "userInfo";
     }
 
-
+    // this is to code for read functionality  for all users
     @RequestMapping(value = "list", method = RequestMethod.GET)
     public String registeredUserList(Model model){
         model.addAttribute("userskey", userDAO.getAllUsers());
 
         return "usersList";
 
-
     }
+    // this is to code for read functionality  for 1 user ( The R in CRUD)
+    @RequestMapping(value = "/modify", method=RequestMethod.GET)
+    public String getToModifyUser(Model model,@RequestParam String userid){
+
+       User u = userDAO.findUser(userid,null,null,null);
+        model.addAttribute("u",u);
+        return "modifyUser";
+
+    };
+
+    // this is to code for UPDATE functionality  for 1 user ( The U in CRUD)
+    @RequestMapping(value = "/modify", method = RequestMethod.POST)
+    public String modifyUser(Model model,
+                                        @RequestParam String userid,
+                                        @RequestParam String password,
+                                        @RequestParam String fname,
+                                        @RequestParam String lname,
+                                        @RequestParam String email){
+
+        System.out.println("u"+userid);
+        User u = new User(userid, password,fname,lname,email,false);
+
+
+        userDAO.updateUser(u);
+
+        return "redirect:/admin";
+    }
+
+    // this is to code for DELETE functionality  for 1 user ( The U in CRUD)
+    @RequestMapping(value = "/delete", method = RequestMethod.GET)
+    public String deleteUser(Model model,
+                             @RequestParam String userid
+                          ){
+
+        System.out.println("u"+userid);
+
+
+        userDAO.deleteUser(userid);
+
+        return "redirect:/admin";
+    }
+
+
 
 
 }

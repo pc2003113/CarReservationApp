@@ -1,7 +1,10 @@
 package com.eride.CarReservationApp.Controllers;
 
 
+import com.eride.CarReservationApp.Models.RegisterModel;
 import com.eride.CarReservationApp.Models.User;
+import com.eride.CarReservationApp.dao.UserDAO;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,6 +18,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 @RequestMapping(value ="login")
 public class LoginController {
 
+    @Autowired
+    private UserDAO userDAO;
 
     @RequestMapping(value="", method=RequestMethod.GET)
     public String displaylogin(Model model) {
@@ -26,19 +31,19 @@ public class LoginController {
     public String submitLoginCustomer(Model model,
                               @RequestParam String userid,
                               @RequestParam String password) {
-        for(int i = 0; i <UserController.users.size(); i++){
 
-            User u= UserController.users.get(i);
-            if (u.getUserid().equals(userid) && u.getPassword().equals(password)) {
+        User u =userDAO.findUser(userid,null,null,null);
+
+
+
+
+            if (u!=null && u.getPassword().equals(password)) {
 
                 return "RentalBooking";
 
             }
 
-        }
-
-
-        // no match found error logic follows
+         // no match found error logic follows
         model.addAttribute("message","invalid login, please try again");
         return "login";
 
@@ -50,18 +55,17 @@ public class LoginController {
     @RequestMapping(value="/admin", method=RequestMethod.POST)
     public String submitLoginAdmin(Model model,
                               @RequestParam String userid,
-                              @RequestParam String password) {
-        for(int i = 0; i <UserController.users.size(); i++){
+                              @RequestParam String password)
 
-            User u= UserController.users.get(i);
-            if (u.getUserid().equals(userid) && u.getPassword().equals(password) && u.isAdmin()) {
+    {
+
+
+            User u= userDAO.findUser(userid,null,null,null);
+            if (u!=null && u.getPassword().equals(password) && u.isAdmin()) {
 
                 return "admin";
 
             }
-
-        }
-
 
         // no match found error logic follows
         model.addAttribute("message","invalid login, please try again");
