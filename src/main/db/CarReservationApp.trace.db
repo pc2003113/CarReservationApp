@@ -468,3 +468,149 @@ UPDATE carrent.user SET userid=?,fname=?, lname=?, password=?, email=? where use
 2019-09-11 19:23:30 jdbc[13]: exception
 org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM CARRENT.USER CARRENT.[*]USER "; SQL statement:
 select * from CARRENT.USER CARRENT.USER [42000-197]
+2019-09-13 19:40:59 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM CARRENT.USER 
+UPDATE CARRENT[*].USER SET ADMIN=TRUE WHERE USERID=PJOSE123 "; SQL statement:
+select * from CARRENT.USER 
+update CARRENT.USER set admin=true where userid=PJose123 [42000-197]
+2019-09-13 19:42:55 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM CARRENT.USER 
+UPDATE CARRENT[*].USER SET ADMIN=TRUE WHERE USERID='PJose123' "; SQL statement:
+select * from CARRENT.USER 
+update CARRENT.USER set admin=true where userid='PJose123' [42000-197]
+2019-09-13 20:13:08 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM CARRENT.USER 
+DELETE FROM[*] CARRENT.USER  WHERE USERID='Pjose123' "; SQL statement:
+select * from CARRENT.USER 
+delete from CARRENT.USER  where userid='Pjose123' [42000-197]
+2019-09-13 20:13:11 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM CARRENT.USER 
+DELETE FROM[*] CARRENT.USER  WHERE USERID='Pjose123' "; SQL statement:
+select * from CARRENT.USER 
+delete from CARRENT.USER  where userid='Pjose123' [42000-197]
+2019-09-13 20:13:40 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM CARRENT.USER 
+DELETE FROM[*] CARRENT.USER  WHERE USERID='PJose123' "; SQL statement:
+select * from CARRENT.USER 
+delete from CARRENT.USER  where userid='PJose123' [42000-197]
+2019-09-13 20:13:50 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM CARRENT.USER 
+DELETE FROM[*] CARRENT.USER  WHERE USERID='PJose123' "; SQL statement:
+select * from CARRENT.USER 
+delete from CARRENT.USER  where userid='PJose123' [42000-197]
+2019-09-13 20:13:51 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM CARRENT.USER 
+DELETE FROM[*] CARRENT.USER  WHERE USERID='PJose123' "; SQL statement:
+select * from CARRENT.USER 
+delete from CARRENT.USER  where userid='PJose123' [42000-197]
+2019-09-13 21:29:07 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM CARRENT.USER 
+UPDATE CARRENT[*].USER SET ADMIN= TRUE WHERE USERID='PJose123' "; SQL statement:
+select * from CARRENT.USER 
+update CARRENT.USER set admin= true where userid='PJose123' [42000-197]
+2019-09-15 16:20:53 jdbc[33]: exception
+org.h2.jdbc.JdbcSQLException: Table "CAR" already exists; SQL statement:
+create table CARRENT.CAR(
+ID INT auto_increment PRIMARY KEY,
+year  varchar(255) ,
+ make varchar(255),
+ carModel VARCHAR(255) ,
+ vehicleType varchar(255),
+) [42101-197]
+2019-09-15 17:29:06 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Column "VEHICLEMODEL" not found; SQL statement:
+INSERT INTO carrent.car (year,make,vehicleModel,vehicleType) values (?,?,?,?,) [42122-197]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:357)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.table.Table.getColumn(Table.java:682)
+	at org.h2.command.Parser.parseColumn(Parser.java:936)
+	at org.h2.command.Parser.parseColumnList(Parser.java:920)
+	at org.h2.command.Parser.parseInsertGivenTable(Parser.java:1258)
+	at org.h2.command.Parser.parseInsert(Parser.java:1222)
+	at org.h2.command.Parser.parsePrepared(Parser.java:431)
+	at org.h2.command.Parser.parse(Parser.java:335)
+	at org.h2.command.Parser.parse(Parser.java:307)
+	at org.h2.command.Parser.prepareCommand(Parser.java:278)
+	at org.h2.engine.Session.prepareLocal(Session.java:611)
+	at org.h2.engine.Session.prepareCommand(Session.java:549)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1247)
+	at org.h2.jdbc.JdbcPreparedStatement.<init>(JdbcPreparedStatement.java:76)
+	at org.h2.jdbc.JdbcConnection.prepareStatement(JdbcConnection.java:304)
+	at com.zaxxer.hikari.pool.ProxyConnection.prepareStatement(ProxyConnection.java:311)
+	at com.zaxxer.hikari.pool.HikariProxyConnection.prepareStatement(HikariProxyConnection.java)
+	at org.springframework.jdbc.core.JdbcTemplate$SimplePreparedStatementCreator.createPreparedStatement(JdbcTemplate.java:1555)
+	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:614)
+	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:861)
+	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:916)
+	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:926)
+	at com.eride.CarReservationApp.dao.CarDAO.addCar(CarDAO.java:20)
+	at com.eride.CarReservationApp.dao.CarDAO$$FastClassBySpringCGLIB$$e3bad9d.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:749)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:139)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:688)
+	at com.eride.CarReservationApp.dao.CarDAO$$EnhancerBySpringCGLIB$$898591f5.addCar(<generated>)
+	at com.eride.CarReservationApp.Controllers.CarController.saveNewCar(InventoryController.java:48)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:190)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:104)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:892)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:797)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1039)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:942)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1005)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:908)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:660)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:882)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:109)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:92)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:109)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:109)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:109)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:490)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:853)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1587)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+2019-09-15 17:31:19 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "DESC[*] CARRENT.USER "; expected "DELETE, DROP, DECLARE, DEALLOCATE, {"; SQL statement:
+desc CARRENT.USER [42001-197]
+2019-09-15 17:31:41 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "DESCRIBE[*] CARRENT.USER "; expected "DELETE, DROP, DECLARE, DEALLOCATE, {"; SQL statement:
+describe CARRENT.USER [42001-197]

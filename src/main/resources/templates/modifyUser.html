@@ -3,7 +3,7 @@
 <head>
     <head th:replace="fragments:: head"></head>
     <meta charset="UTF-8">
-    <title>Register</title>
+    <title>Modify User</title>
 
 </head>
 <body>
@@ -15,7 +15,7 @@ Use tab keys to move from one input field to the next.
 <form name='modifyUser' method="post" action="/user/modify">
     <ul>
         <li><label for="userid">userid:</label></li>
-        <li><input type="userid" name="userid" size="12" th:value="${u.userid}" /></li>
+        <li><input type="text" name="userid" size="12" th:value="${u.userid}" /></li>
         <li><label for="password">Password:</label></li>
         <li><input type="password" name="password" size="12" th:value="${u.password}" /></li>
         <li><label for="fname">First Name:</label></li>

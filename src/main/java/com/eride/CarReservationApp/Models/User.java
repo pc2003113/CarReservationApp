@@ -20,7 +20,7 @@ public class User {
         this.email=email;
         this.admin=admin;
     }
-    public User() {
+    public User(String year, String make, String vehicleModel, String vehicleType) {
 
     }
 

@@ -20,3 +20,13 @@ INSERT INTO carrent.user values ('kun','67890','N','var',false,'k.n@gmail.com');
 INSERT INTO carrent.user values ('blin','78901','N','var',false,'b.n@gmail.com');
 INSERT INTO carrent.user values ('deep','89012','T','var',false,'d.t@gmail.com');
 INSERT INTO carrent.user values ('rub','90123','T','var',false,'r.t@gmail.com');
+
+
+// CAR table
+drop table CARRENT.CAR ;
+CREATE TABLE carrent.car (
+                    ID INT auto_increment PRIMARY KEY,
+                    year  varchar(255),
+                    make varchar(255),
+                    vehicleModel VARCHAR(255) ,
+                    vehicleType varchar(255));

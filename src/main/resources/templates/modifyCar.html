@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <head th:replace="fragments:: head"></head>
+    <meta charset="UTF-8">
+    <title>Modify Car</title>
+
+</head>
+<body>
+<div th:replace="fragments :: page-header"></div>
+
+
+
+Use tab keys to move from one input field to the next.
+<form name='modifyCar' method="post" action="/car/modify">
+    <ul>
+        <li><label for="id">id:</label></li>
+        <li><input type="text" name="id" size="12" th:value="${c.id}" /></li>
+        <li><label for="year">Year:</label></li>
+        <li><input type="text" name="year" size="12" th:value="${c.year}" /></li>
+        <li><label for="make">Make:</label></li>
+        <li><input type="text" name="make" size="50"  th:value="${c.make}" /></li>
+        <li><label for="vehicleModel">Vehicle Model:</label></li>
+        <li><input type="text" name="vehicleModel" size="50"  th:value="${c.vehicleModel}" /></li>
+        <!--<li><label for="vehicleType">Vehicle Type:</label></li>
+        <li><input type="vehicleType" name="vehicleType" size="50"  th:value="${c.vehicleType}" /></li>-->
+        <br>
+        <li><input type="submit" name="Submit" value="Submit" /></li>
+    </ul>
+</form>
+
+</body>
+</html>

@@ -1,10 +1,47 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
+    <head th:replace="fragments:: head"></head>
     <meta charset="UTF-8">
     <title>Car Inventory</title>
 </head>
 <body>
 
+
+<div th:replace="fragments :: page-header"></div>
+<h1>Car Inventory </h1>
+<p>The following information you entered has been saved.</p>
+<table  >
+    <thead>
+    <tr>
+        <th>id</th>
+        <th>Year</th>
+        <th>Make</th>
+        <th>Vehicle Model </th>
+        <th>Vehicle Type </th>
+
+    </tr>
+    </thead>
+
+    <tr th:each="c:${carskey}" >
+        <td th:text ="${c.id}"></td>
+        <td th:text ="${c.year}"></td>
+        <td th:text ="${c.make}"></td>
+        <td th:text ="${c.vehicleModel}"></td>
+        <td th:text ="${c.vehicleType}"></td>
+        <td>
+            <a th:href="@{/car/modify(id=${c.id})}">Modify</a>
+        </td>
+        <td>
+            <a th:href="@{/car/delete(id=${c.id})}">Delete</a>
+        </td>
+
+    </tr>
+
+
+
+</table>
+
 </body>
+
 </html>

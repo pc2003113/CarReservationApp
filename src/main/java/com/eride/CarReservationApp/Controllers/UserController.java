@@ -47,8 +47,8 @@ public class UserController {
         model.addAttribute("lname",lname);
         model.addAttribute("email",email);
 
-
-        User u = new User(userid, password,fname,lname,email,false);
+        String hashedPassword=LoginController.getHash(password);
+        User u = new User(userid, hashedPassword,fname,lname,email,false);
 
         userDAO.addUser(u);
 
