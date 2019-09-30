@@ -614,3 +614,15 @@ desc CARRENT.USER [42001-197]
 2019-09-15 17:31:41 jdbc[13]: exception
 org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "DESCRIBE[*] CARRENT.USER "; expected "DELETE, DROP, DECLARE, DEALLOCATE, {"; SQL statement:
 describe CARRENT.USER [42001-197]
+2019-09-21 17:30:40 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "COUNTRY[*] VARCHAR(255)) "; expected "COMMIT, CREATE, CALL, CHECKPOINT, COMMENT, {"; SQL statement:
+country varchar(255)) [42001-197]
+2019-09-21 17:31:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "LOCATION" already exists; SQL statement:
+CREATE TABLE carrent.location (
+                    ID varchar(235)PRIMARY KEY,
+                    address  varchar(255),
+                    city varchar(255),
+                    state VARCHAR(255) ,
+                    zipcode varchar(255),
+                    country varchar(255)) [42101-197]

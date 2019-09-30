@@ -60,7 +60,7 @@ public class CarController {
 
 
 
-    // this is to code for read functionality  for all cars
+    // this code is for read functionality  for all cars
     @RequestMapping(value = "carInventory", method = RequestMethod.GET)
     public String carsList(Model model){
         model.addAttribute("carskey", carDAO.getAllCars());
@@ -107,7 +107,7 @@ public class CarController {
 
        carDAO.deleteCar(id);
 
-        return "redirect:/admin";
+        return "/listLocation";
     }
 
 

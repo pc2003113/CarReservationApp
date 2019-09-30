@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <head th:replace="fragments:: head"></head>
+    <meta charset="UTF-8">
+    <title>Location</title>
+</head>
+<body>
+
+<h1>Add Vehicle Units </h1>
+<div th:replace="fragments :: page-header-admin"></div>
+
+<form name='Add Location' method="post">
+    <ul>
+        <li><label for="id">Location ID :</label></li>
+        <li><input type="text" name="id" size="12" /></li>
+        <li><label for="address">Address:</label></li>
+        <li><input type="text" name="address" size="12" /></li>
+        <li><label for="city">City:</label></li>
+        <li><input type="text" name="city" size="50" /></li>
+        <li><label for="state">State:</label></li>
+        <li><input type="text" name="state" size="50" /></li>
+        <li><label for="zipcode">Zip Code:</label></li>
+        <li><input type="text" name="zipcode" size="50" /></li>
+        <li><label for="country">Country:</label></li>
+        <li><input type="text" name="country" size="50" /></li>
+
+        <br>
+        <li><input type="submit" name="add" value="Add" /></li>
+    </ul>
+</form>
+
+
+</body>
+</html>

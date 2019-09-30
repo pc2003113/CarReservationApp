@@ -33,17 +33,17 @@ public class CarDAO {
 
 //Any one of the parameters can be used to find the Car
     public Car findCar( int id, String year,String make,String vehicleModel,String vehicleType){
-    List<Car> matches = jdbcTemplate.query(
-    "select * from carrent.car where id=? or (year) = ? or make=? or vehicleModel =? or vehicleType=?",
-   new Object[] { id,year,make,vehicleModel,vehicleType },
-    new CarRowMapper());
-    if (matches.isEmpty()){
-    return null;
+        List<Car> matches = jdbcTemplate.query(
+                "select * from carrent.car where id=? or (year) = ? or make=? or vehicleModel =? or vehicleType=?",
+                new Object[] { id,year,make,vehicleModel,vehicleType },
+                new CarRowMapper());
+        if (matches.isEmpty()){
+            return null;
+        }
+        else {
+            return matches.get(0);
+        }
     }
-    else {
-    return matches.get(0);
-    }
-   }
 
 
    public void updateCar(Car car){

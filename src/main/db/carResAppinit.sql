@@ -30,3 +30,13 @@ CREATE TABLE carrent.car (
                     make varchar(255),
                     vehicleModel VARCHAR(255) ,
                     vehicleType varchar(255));
+
+// LOCATION table
+drop table CARRENT.LOCATION ;
+CREATE TABLE carrent.location (
+                    ID varchar(235)PRIMARY KEY,
+                    address  varchar(255),
+                    city varchar(255),
+                    state VARCHAR(255) ,
+                    zipcode varchar(255),
+                    country varchar(255));

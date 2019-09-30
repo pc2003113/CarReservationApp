@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <head th:replace="fragments:: head"></head>
+    <meta charset="UTF-8">
+    <title>Modify Locations</title>
+
+</head>
+<body>
+<div th:replace="fragments :: page-header-admin"></div>
+
+
+
+Use tab keys to move from one input field to the next.
+<form name='modifyLocations' method="post" action="/location/modify">
+    <ul>
+        <li><label for="id">id:</label></li>
+        <li><input type="text" name="id" size="12" th:value="${l.id}" /></li>
+        <li><label for="address">address:</label></li>
+        <li><input type="text" name="address" size="12" th:value="${l.address}" /></li>
+        <li><label for="city">city:</label></li>
+        <li><input type="text" name="city" size="50"  th:value="${l.city}" /></li>
+        <li><label for="state">state:</label></li>
+        <li><input type="text" name="state" size="50"  th:value="${l.state}" /></li>
+        <li><label for="zipcode">Zipcode:</label></li>
+        <li><input type="text" name="zipcode" size="50"  th:value="${l.zipcode}" /></li>
+        <li><label for="country">Country:</label></li>
+        <li><input type="text" name="country" size="50"  th:value="${l.country}" /></li>
+
+
+
+
+        <!--<li><label for="vehicleType">Vehicle Type:</label></li>
+        <li><input type="vehicleType" name="vehicleType" size="50"  th:value="${c.vehicleType}" /></li>-->
+        <br>
+        <li><input type="submit" name="Submit" value="Submit" /></li>
+    </ul>
+</form>
+
+</body>
+</html>
