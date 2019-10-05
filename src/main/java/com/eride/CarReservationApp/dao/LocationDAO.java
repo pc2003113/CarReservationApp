@@ -55,8 +55,8 @@ public class LocationDAO {
 
 
         jdbcTemplate.update(
-                "UPDATE carrent.location SET id=?, city=? where id=?",
-                location.getId(),location.getCity(),location.getId());
+                "UPDATE carrent.location SET address=?,city=?,State=?,zipcode=?,country=? where id=?",
+                location.getAddress(),location.getCity(),location.getState(),location.getZipcode(),location.getCountry(),location.getId());
     }
 
     public void deleteLocation(String id){

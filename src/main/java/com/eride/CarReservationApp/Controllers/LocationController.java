@@ -1,5 +1,6 @@
 package com.eride.CarReservationApp.Controllers;
 
+import com.eride.CarReservationApp.Models.Car;
 import com.eride.CarReservationApp.Models.Location;
 import com.eride.CarReservationApp.dao.LocationDAO;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -55,6 +56,9 @@ public class LocationController {
         return "redirect:/admin";
     }
 
+
+
+
     @RequestMapping(value = "listLocations", method = RequestMethod.GET)
     public String LocationList(Model model){
         model.addAttribute("locationsKey", locationDAO.getAllLocations());
@@ -63,7 +67,17 @@ public class LocationController {
 
     }
 
-    // this is to code for UPDATE functionality  for 1 location ( The U in CRUD)
+    // this is to code for read functionality  for 1 user ( The R in CRUD)
+    @RequestMapping(value = "/modify", method=RequestMethod.GET)
+    public String getToModifyLocation(Model model,@RequestParam String id){
+
+        Location location = locationDAO.findLocation(id,null,null,null,null,null );
+        model.addAttribute("l",location);
+        return "modifyLocation";
+
+    };
+
+   // this is to code for UPDATE functionality  for 1 location ( The U in CRUD)
     @RequestMapping(value = "/modify", method = RequestMethod.POST)
     public String modifyLocation(Model model,
                                  @RequestParam String id,
@@ -76,12 +90,12 @@ public class LocationController {
     ){
 
         System.out.println("l"+id);
-        Location l = new Location(id,address, city,state,zipcode,country);
+        Location location = new Location(id,address, city,state,zipcode,country);
 
 
-        locationDAO.updateLocation(l );
+        locationDAO.updateLocation(location );
 
-        return "/modify";
+        return "redirect:/admin";
     }
 
     // this is to code for DELETE functionality  for 1 user ( The U in CRUD)
