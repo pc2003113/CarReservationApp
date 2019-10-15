@@ -40,3 +40,15 @@ CREATE TABLE carrent.location (
                     state VARCHAR(255) ,
                     zipcode varchar(255),
                     country varchar(255));
+
+// Reservations table
+drop table CARRENT.Booking ;
+CREATE TABLE carrent.booking (
+                    ID INT auto_increment PRIMARY KEY,
+                    -- foreign key from location table
+                    branchID varchar(235),
+                    startDate  varchar(255),
+                    endDate varchar(255),
+                    vehicleType varchar(255),
+                    --foreign key from the user table
+                    userid varchar (255));

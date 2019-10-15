@@ -14,13 +14,32 @@
     <form name='Rental Booking' method="post">
         <ul>
 
-            <li><label for="resLocation">Reservation Location:</label></li>
+            <li><label for="resLocation">Pickup Location:</label></li>
             <li>
-
+                <select type= "text" name="branchID">
+                    <option value=""> -- </option>
+                    <option th:each="location : ${LocationsKey}"
+                            th:value="${location.id}"
+                            th:utext="${location.city}"/>
+                </select>
             </li>
+            <li><label for="startDate">Start Date:</label></li>
+            <li><input type="text" name="startDate"  size="12" /></li>
+            <li><label for="endDate">End Date:</label></li>
+            <li><input type="text" name="endDate" size="12" /></li>
+            <li><label for="vehicleSelected">Car Selected:</label></li>
+            <li><select  name="vehicleType">
+                <option value="sedan">Sedan</option>
+                <option value="suvs">SUV</option>
+                <option value="vans">Van</option>
+                <option value="trucks">Trucks</option>
+                <option value="none" selected>None</option>
+
+            </select></li>
+
 
             <br>
-            <li><input type="submit" name="add" value="Add" /></li>
+            <li><input type="submit" name="confirmBooking" value="Confirm Booking" /></li>
         </ul>
     </form>
 

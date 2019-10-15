@@ -109,7 +109,7 @@ public class LocationController {
 
       locationDAO.deleteLocation(id);
 
-        return "/modify";
+        return "redirect:/listLocations";
     }
 
 

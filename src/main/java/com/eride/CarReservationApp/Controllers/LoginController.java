@@ -45,7 +45,7 @@ public class LoginController {
 
             if (u!=null && u.getPassword().equals(userInputPW)) {
 
-                return "RentalBooking";
+                return "redirect:/addBooking";
             }
          // no match found error logic follows
         model.addAttribute("message","invalid login, please try again");
